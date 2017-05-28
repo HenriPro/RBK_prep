@@ -1,4 +1,4 @@
-var usersController=require('./users/usersController.js');
+var usersController=require('../users/usersController.js');
 
 module.exports=function (app, express){
 	console.log('eh')
