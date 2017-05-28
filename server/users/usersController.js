@@ -7,7 +7,6 @@ module.exports={
 		var password= req.body.password;
 
 		User.findOne({userName: userName},function(err,results){
-			console.log(err,results);
 			if(results){
 				next(new Error('User already exist!'));
 			}else{
@@ -30,7 +29,6 @@ module.exports={
 		var password= req.body.password;
  
 		User.findOne({userName: userName},function(err,user){
-			console.log(user,err)
 			if(user){
 				return user.comparePasswords(password)
 		            .then(function (foundUser) {
