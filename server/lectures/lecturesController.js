@@ -38,17 +38,26 @@ module.exports={
 	editLecture : function ( req, res ) {
 
 	},
-	addQuestion : function ( req, res , next ){
+	addQuestiontoLecture : function ( req, res , next ){
 		var lectureID = req.body.lectureID;
 		var question = req.body.question;
 		
-		Lectures.update({'_id': lectureID}, {$push :{'questions': question}}),
+		Lecture.update({'_id': lectureID}, {$push :{'questions': question}},
 		function(err,question){
 			if(err){
 				next(new Error("There was an error adding"));
 			}else{
 				res.send({question: question});
 			}
-		}
-	} 
+		});
+	},
+	getLecture : function ( req , res ){
+
+	},
+	getAllLectures : function ( req , res ){
+
+	},
+	getLecureQuestions : function ( req , res ){
+		
+	}
 }

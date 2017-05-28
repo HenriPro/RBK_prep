@@ -1,4 +1,5 @@
-var mongoose=require('mongoose');
+var mongoose = require('mongoose');
+var questions = require('../questions/questionsModel.js');
 
 var LecturesSchema=new mongoose.Schema({
 	slide : String,

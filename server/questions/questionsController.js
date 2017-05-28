@@ -1,7 +1,7 @@
-var question=require('./questionsModel.js');
+var Question=require('./questionsModel.js');
 
 module.exports={
-	addQuestion: function ( req, res, next ) {
+	addQuestion : function ( req, res, next ) {
 		var questionText = req.body.questionText;
 		var example = req.body.example;
 		var type = req.body.type;
@@ -28,10 +28,16 @@ module.exports={
 			}
 		})
 	},
-	removeQuestion: function ( req, res ) {
+	removeQuestion : function ( req, res ) {
 
 	},
-	editQuestion: function ( req, res ) {
+	editQuestion : function ( req, res ) {
+
+	},
+	getQuestion : function ( req, res ) {
+
+	},
+	getAllQuestions : function ( req, res) {
 
 	}
 }
