@@ -9,6 +9,7 @@ module.exports=function (app, express){
 	app.get('/api/questions/getQuestion', questionsController.getQuestion);
 	app.get('/api/questions/getAllQuestions',questionsController.getAllQuestions);
 	app.post('/api/questions/addQuestion', questionsController.addQuestion);
+	app.put('/api/questions/editQuestion', questionsController.editQuestion);
 
 	app.get('/api/lectures/getLecture',lecturesController.getLecture);
 	app.get('/api/lectures/getAllLectures',lecturesController.getAllLectures);
