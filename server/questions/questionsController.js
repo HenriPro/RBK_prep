@@ -55,8 +55,18 @@ module.exports={
 			}
 		})
 	},
-	getQuestion : function ( req, res ) {
-
+	getQuestion : function ( req, res ,next ) {
+		var questionID = req.params.id;
+		
+		//find the requested questions and send it back
+		Question.findOne({ '_id' : questionID },
+		function(err,questionFound){
+			if(err){
+				next(new Error('Question was not found'));
+			}else{
+				res.send({ question : questionFound });
+			}
+		})
 	},
 	getAllQuestions : function ( req, res) {
 

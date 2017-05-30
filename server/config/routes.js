@@ -6,7 +6,7 @@ module.exports=function (app, express){
 	app.post('/api/users/signin',usersController.signin);
 	app.post('/api/users/signup',usersController.signup);
 
-	app.get('/api/questions/getQuestion', questionsController.getQuestion);
+	app.get('/api/questions/getQuestion/:id', questionsController.getQuestion);
 	app.get('/api/questions/getAllQuestions',questionsController.getAllQuestions);
 	app.post('/api/questions/addQuestion', questionsController.addQuestion);
 	app.put('/api/questions/editQuestion', questionsController.editQuestion);
