@@ -2,6 +2,7 @@ var Question = require('./questionsModel.js');
 var Lecture = require('../lectures/lecturesModel.js');
 
 module.exports={
+	//add new question and update its corresponding lecture questions.
 	addQuestion : function ( req, res, next ) {
 		var questionText = req.body.questionText;
 		var example = req.body.example;
@@ -38,9 +39,7 @@ module.exports={
 			}
 		})
 	},
-	removeQuestion : function ( req, res ) {
-
-	},
+	//edit question information based on its ID.
 	editQuestion : function ( req, res, next ) {
 		var data = req.body;
 		var questionID= req.body._id;
@@ -55,9 +54,10 @@ module.exports={
 			}
 		})
 	},
+	//get one question by its ID
 	getQuestion : function ( req, res ,next ) {
 		var questionID = req.params.id;
-		
+
 		//find the requested questions and send it back
 		Question.findOne({ '_id' : questionID },
 		function(err,questionFound){
@@ -68,7 +68,43 @@ module.exports={
 			}
 		})
 	},
-	getAllQuestions : function ( req, res) {
+	//get all questions that are related to certain lecture
+	getAllLectureQuestions : function ( req, res, next) {
+		var lectureID= req.params.lectureID;
 
+		//search for all the questions that have the same lecture ID.
+		Question.find({lectureID : lectureID},
+		function(err,questions){
+			console.log(questions);
+			if(err){
+				next(new Error("There was an error"));
+			}else{
+				res.send({questions: questions});
+			}
+		})
+	},
+	//remove question based on its ID
+	removeQuestion : function ( req, res, next ) {
+		var questionID= req.params.id;
+
+		//find a question and then remove it.
+		Question.findOne({ '_id':questionID },
+		function(err, question){
+			if(err){
+				next(new Error('There was error finding the question'));
+			}else{
+				if(question !== null){
+					question.remove(function(err,removedQues){
+						if(err){
+							next(new Error('There was error deleting'));
+						}else{
+							res.send({ removedQuestion : removedQues })
+						}
+					});
+				}else{
+					res.json("Question have been already removed");
+				}
+			};
+		})
 	}
 }
