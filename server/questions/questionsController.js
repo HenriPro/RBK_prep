@@ -42,7 +42,7 @@ module.exports={
 	//edit question information based on its ID.
 	editQuestion : function ( req, res, next ) {
 		var data = req.body;
-		var questionID= req.body._id;
+		var questionID= req.body.id;
 
 		//update any question details.
 		Question.update({'_id': questionID},{ '$set' : data },
