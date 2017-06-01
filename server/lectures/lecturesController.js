@@ -1,8 +1,8 @@
 var Lecture=require('./lecturesModel.js')
 
 module.exports={
+	//add new lecture
 	addLecture : function ( req , res , next ) {
-		console.log(req.body);
 		var slide = req.body.slide;
 		var title = req.body.title;
 		var subTitle = req.body.subTitle;
@@ -32,12 +32,7 @@ module.exports={
 		})
 
 	},
-	removeLecture : function ( req, res ) {
-
-	},
-	editLecture : function ( req, res ) {
-
-	},
+	//add question to a certain lecture
 	addQuestiontoLecture : function ( req, res , next ){
 		var lectureID = req.body.lectureID;
 		var question = req.body.question;
@@ -51,13 +46,78 @@ module.exports={
 			}
 		});
 	},
-	getLecture : function ( req , res ){
+	//get a certain lecture based on its id
+	getLecture : function ( req , res ,next){
+		var lectureID = req.params.id;
 
+		Lecture.findOne({ '_id' : lectureID },
+		function(err,lecture){
+			if(err){
+				next(new Error('Lecture was not found'));
+			}else{
+				res.send({ Lecture : lecture});
+			}
+		});
 	},
-	getAllLectures : function ( req , res ){
+	//returns all existing lectures 
+	getAllLectures : function ( req , res ,next){
+		Lecture.find({},
+		function(err,lectures){
+			if(err){
+				next(new Error('Error finding lectures'))
+			}else{
+				res.send({ lectures : lectures });
+			}
+		})
+	},
+	//get questions to a certain lecture based on its id
+	getLecureQuestions : function ( req , res ,next){
+		var lectureID = req.params.id;
 
+		Lecture.findOne({ '_id': lectureID }, 'questions',
+		function(err, lectureQuestions ){
+			if(err){
+				next(new Error('Error finding lecture questions'));
+			}else{
+				res.send({ lectureQuestions : lectureQuestions });
+			}
+		});
 	},
-	getLecureQuestions : function ( req , res ){
-		
+	//edit lecture information
+	editLecture : function ( req, res , next ) {
+		var data = req.body;
+		var lectureID = req.body.id;
+
+		Lecture.update({ '_id' : lectureID }, { '$set' : data},
+		function(err, lecture ){
+			if(err){
+				next(new Error('Error editing the lecture'));
+			}else{
+				res.send({ lecture : lecture });
+			}
+		}) 
+	},
+	//remove lecture based on its id
+	removeLecture : function ( req, res ,next ) {
+		var lectureID = req.params.id;
+
+		Lecture.findOne({ '_id' : lectureID },
+		function( err , lecture ){
+			if(err){
+				next(new Error('Lecture was not found'));
+			}else{
+				if( lecture !== null){
+					lecture.remove(function(err,removedLecture){
+						if(err){
+							next(new Error('Error removing lecture'));
+						}else{
+							res.send({ removedLecture : removedLecture })
+						}
+					})
+				}else{
+					res.json('Lecture have been already removed');
+				}
+			}
+		})
 	}
 }
