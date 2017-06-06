@@ -10,7 +10,7 @@ require('./config/routes.js')(app,express);
 mongoose.connect('mongodb://localhost/prep');
 
 app.listen(8000,function(){
-	console.log('App is now listning');
+	console.log('App is now listning on 8000');
 });
 
 module.exports=app;
