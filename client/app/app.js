@@ -1,5 +1,6 @@
 angular.module('prep',[
 	'prep.signin',
+	'prep.services',
 	'ngRoute'
 ])
 .config(function ($routeProvider, $httpProvider ,$locationProvider){
@@ -8,7 +9,7 @@ angular.module('prep',[
 
 	$routeProvider
 	.when('/signin',{
-		templateUrl: 'app/signin.html',
+		templateUrl: 'app/auth/signin.html',
 		controller: 'SigninController'
 	})
 	.otherwise({
