@@ -36,3 +36,8 @@ angular.module('prep.services',[])
 	}
 })
 
+.factory('Contents',function($http){
+	return {
+		
+	}
+})

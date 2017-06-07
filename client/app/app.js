@@ -1,5 +1,6 @@
 angular.module('prep',[
 	'prep.signin',
+	'prep.contents',
 	'prep.services',
 	'ngRoute'
 ])
@@ -11,6 +12,10 @@ angular.module('prep',[
 	.when('/signin',{
 		templateUrl: 'app/auth/signin.html',
 		controller: 'SigninController'
+	})
+	.when('/contents',{
+		templateUrl : 'app/contents/contents.html',
+		controller : 'ContentsController'
 	})
 	.otherwise({
       redirectTo: '/'
