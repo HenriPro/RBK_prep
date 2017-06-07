@@ -3,10 +3,9 @@ angular.module('prep.signin',[])
 .controller('SigninController',function($scope, Auth){
 	$scope.user = {};
 
-	$scope.signin = function (){
+	$scope.signin = function () {
 		Auth.signin($scope.user)
 		.then(function(resp){
-			console.log(resp)
 			if(!resp.token){
 				console.log("there were no response");
 			}else{
