@@ -14,11 +14,11 @@ module.exports={
 					userName: userName,
 					password: password
 				},function(err,user){
-					if(user){
+					if(err){
+						next(new Error(err));
+					}else{
 						var token=jwt.encode(user, 'secret');
 						res.json({ token: token });
-					}else{
-						next(err);
 					}
 				});
 			};
