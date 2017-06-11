@@ -1,0 +1,11 @@
+.test{
+  background-color: #B41782; 
+  color : white;
+}
+
+.test:hover {
+	background-color: #8E0D56;
+}
+
+
+
