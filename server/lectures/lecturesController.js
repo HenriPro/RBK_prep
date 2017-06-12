@@ -71,7 +71,7 @@ module.exports={
 		})
 	},
 	//get questions to a certain lecture based on its id
-	getLecureQuestions : function ( req , res ,next){
+	getLectureQuestions : function ( req , res ,next){
 		var lectureID = req.params.id;
 
 		Lecture.findOne({ '_id': lectureID }, 'questions',
@@ -83,6 +83,19 @@ module.exports={
 			}
 		});
 	},
+	//get all lectures for a certain week
+	getLectureByWeek: function ( req, res, next) {
+		var week=Number(req.params.week);
+
+		Lecture.find({ 'week' : week },function(err,results){
+			if(err){
+				next(new Error('No lecture Found'));
+			}else{
+				res.send({ results : results });
+			}
+		})
+
+	}
 	//edit lecture information
 	editLecture : function ( req, res , next ) {
 		var data = req.body;

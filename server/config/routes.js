@@ -33,7 +33,8 @@ module.exports=function (app, express){
 	
 	app.get('/api/lectures/getAllLectures',lecturesController.getAllLectures);
 	app.get('/api/lectures/getLecture/:id',lecturesController.getLecture);
-	app.get('/api/lectures/getLecureQuestions/:id',lecturesController.getLecureQuestions);
+	app.get('/api/lectures/getLectureQuestions/:id',lecturesController.getLectureQuestions);
+	app.get('/api/lectures/getLectureByWeek/:week',lecturesController.getLectureByWeek);
 	app.post('/api/lectures/addLecture', lecturesController.addLecture);
 	app.post('/api/lectures/addQuestiontoLecture', lecturesController.addQuestiontoLecture);
 	app.put('/api/lectures/editLecture',lecturesController.editLecture);
