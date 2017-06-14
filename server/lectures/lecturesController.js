@@ -95,7 +95,7 @@ module.exports={
 			}
 		})
 
-	}
+	},
 	//edit lecture information
 	editLecture : function ( req, res , next ) {
 		var data = req.body;

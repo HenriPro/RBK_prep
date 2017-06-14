@@ -37,7 +37,19 @@ angular.module('prep.services',[])
 })
 
 .factory('Contents',function($http){
+	var getLecturesByWeek = function (week){
+		return $http({
+			method : 'GET',
+			url: '/api/lectures/getLectureByWeek/' + week
+		})
+		.then(function(resp){
+			return resp.data;
+		})
+		.catch(function(error){
+			return error;
+		})
+	}
 	return {
-		
+		getLecturesByWeek : getLecturesByWeek
 	}
 })
