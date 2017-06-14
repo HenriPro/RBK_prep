@@ -2,28 +2,94 @@
 <html ng-app="prep">
 <head>
 	<title>Prep Website</title>
-	<base href="/signin">
+	<base href="/">
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  	<link rel="icon" type="image/x-icon" href="images/favicon.png" />
-  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/style2.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-<h1>Welcome</h1>
-<div class="dropdown">
-  <button class="btn btn-outline-secondary dropdown-toggle test" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    Dropdown
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><a href="#">Action</a></li>
-    <li><a href="#">Another action</a></li>
-    <li><a href="#">Something else here</a></li>
-    <li role="separator" class="divider"></li>
-    <li><a href="#">Separated link</a></li>
-  </ul>
+<div ng-controller= "ContentsController">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">RBK Prep</a>
+      </div> 
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Week1
+        <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <div ng-repeat="weekLecture in weeks['one']">
+                <li><a href="#">{{weekLecture['title']}}</a></li>
+            </div>
+          </ul>
+        </li>
+        <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Week2
+        <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <div ng-repeat="weekLecture in weeks['two']">
+                <li><a href="#">{{weekLecture['title']}}</a></li>
+            </div>
+          </ul>
+        </li>
+        <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Week3
+        <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <div ng-repeat="weekLecture in weeks['three']">
+                <li><a href="#">{{weekLecture['title']}}</a></li>
+            </div>
+          </ul>
+        </li>
+        <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Week4
+        <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <div ng-repeat="weekLecture in weeks['four']">
+                <li><a href="#">{{weekLecture['title']}}</a></li>
+            </div>
+          </ul>
+        </li>
+        <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Week5
+        <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <div ng-repeat="weekLecture in weeks['five']">
+                <li><a href="#">{{weekLecture['title']}}</a></li>
+            </div>
+          </ul>
+        </li>
+        <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Other
+        <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <div ng-repeat="weekLecture in weeks['two']">
+                <li><a href="#">{{weekLecture['title']}}</a></li>
+            </div>
+          </ul>
+        </li>
+        <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Wiki
+        <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <div ng-repeat="weekLecture in weeks['two']">
+                <li><a href="#">{{weekLecture['title']}}</a></li>
+            </div>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+      </ul>
+    </div>
+  </nav>
 </div>
 
 <div ng-view></div>
@@ -36,7 +102,7 @@
 <script src="bower_components/angular-mocks/angular-mocks.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
 <script src="app/auth/auth.js"></script>
-<script src="app/contents/contents.js"></script>
+<script src="app/contents/contents.js" async></script>
 <script src="app/services/services.js"></script>
 <script src="app/app.js"></script>
 </body>
