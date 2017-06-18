@@ -1,6 +1,7 @@
 angular.module('prep',[
 	'prep.signin',
 	'prep.contents',
+	'prep.weeks',
 	'prep.services',
 	'ngRoute'
 ])
@@ -13,7 +14,7 @@ angular.module('prep',[
 		templateUrl: 'app/auth/signin.html',
 		controller: 'SigninController'
 	})
-	.when('/contents',{
+	.when('/contents/:lecture',{
 		templateUrl : 'app/contents/contents.html',
 		controller : 'ContentsController'
 	})

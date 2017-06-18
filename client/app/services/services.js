@@ -36,7 +36,7 @@ angular.module('prep.services',[])
 	}
 })
 
-.factory('Contents',function($http){
+.factory('Weeks',function($http){
 	var getLecturesByWeek = function (week){
 		return $http({
 			method : 'GET',
@@ -51,5 +51,10 @@ angular.module('prep.services',[])
 	}
 	return {
 		getLecturesByWeek : getLecturesByWeek
+	}
+})
+.factory('Contents',function($http){
+	return {
+		
 	}
 })
