@@ -35,6 +35,7 @@ module.exports=function (app, express){
 	app.get('/api/lectures/getLecture/:id',lecturesController.getLecture);
 	app.get('/api/lectures/getLectureQuestions/:id',lecturesController.getLectureQuestions);
 	app.get('/api/lectures/getLectureByWeek/:week',lecturesController.getLectureByWeek);
+	app.get('/api/lectures/getLectureByTitle/:title', lecturesController.getLectureByTitle);
 	app.post('/api/lectures/addLecture', lecturesController.addLecture);
 	app.post('/api/lectures/addQuestiontoLecture', lecturesController.addQuestiontoLecture);
 	app.put('/api/lectures/editLecture',lecturesController.editLecture);

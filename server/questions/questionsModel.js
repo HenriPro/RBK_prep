@@ -9,6 +9,7 @@ var QuestionsSchema= new mongoose.Schema({
 		type: String,
 		required: true
 	},
+	number : Number,
 	example : String,
 	image : String,
 	lectureID: {type: mongoose.Schema.Types.ObjectId, ref: 'questions'}

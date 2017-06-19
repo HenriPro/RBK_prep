@@ -9,6 +9,7 @@ module.exports={
 		var type = req.body.type;
 		var image = req.body.image;
 		var lectureID = req.body.lectureID;
+		var numb = req.body.number;
 
 		//check if the question exists, if not create new one and add it.
 		Question.findOne({ questionText : questionText },function(err,results){
@@ -20,7 +21,8 @@ module.exports={
 					type : type ,
 					example : example ,
 					image : image ,
-					lectureID : lectureID 
+					lectureID : lectureID,
+					number : numb
 				},function(err,question){
 					if(err){
 						next(new Error('There was error adding'));
