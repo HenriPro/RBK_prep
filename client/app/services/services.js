@@ -66,7 +66,22 @@ angular.module('prep.services',[])
 			return error;
 		})
 	}
+
+	var getLectureQuestions = function (lectureID){
+		return $http({
+			method : 'GET' ,
+			url : '/api/questions/getAllLectureQuestions/' + lectureID
+		})
+		.then(function(resp){
+			return resp.data;
+		})
+		.catch(function(error){
+			return error;
+		})
+	}
+	
 	return {
-		getLectureByTitle : getLectureByTitle
+		getLectureByTitle : getLectureByTitle ,
+		getLectureQuestions : getLectureQuestions
 	}
 })

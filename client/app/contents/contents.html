@@ -1,16 +1,30 @@
 <div class="container">
-        <div class="row">
-    
-    <div class="col-sm-6">
-        <h1>Week: {{week}} Day: {{day}}</h1>
-        <h1>{{title}}</h1>
-        <h2>{{subTitle}}</h2>
-        <iframe src={{slide.src}} frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-        </div>
+    <div class="row">
+        <div class= "col-md-2"></div>
+        <div class="col-md">
+            <h1>Week: {{week}} Day: {{day}}</h1>
+            <h2>{{title}}</h2>
+            <h3>{{subTitle}}</h3>
+            <iframe src={{slide.src}} frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+            </div>
     </div>
     <div class= "row">
-        <div class="col-sm-6">
-            <h1>Exercises</h1>
+        <div class= "col-md-2"></div>
+        <div class="col-md">
+            <h1 style="color:black">Exercises</h1>
+            <h3><u>Basic Requirments</u></h3>
+            <div ng-repeat="basicReq in questions | filter: {'type': 'Basic Requirements'} | orderBy: 'number'">
+                <p>{{basicReq.number}}.{{basicReq.questionText}}</p>
+                <p class="example" ng-repeat="example in basicReq.example"><b>{{example}}</b></p>
+            </div>
+            <h3><u>More Practice</u></h3>
+            <div ng-repeat="morePrac in questions | filter: {'type' : 'More Practice'} | orderBy: 'number'">
+                <p>{{morePrac.number}}.{{morePrac.questionText}}</p>
+            </div>
+            <h3><u>Advanced</u></h3>
+            <div ng-repeat="advanced in questions | filter: {'type' : 'Advanced'} | orderBy: 'number'">
+                <p>{{advanced.number}}.{{advanced.questionText}}</p>
+            </div>
         </div>
     </div>
 </div>
