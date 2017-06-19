@@ -54,7 +54,19 @@ angular.module('prep.services',[])
 	}
 })
 .factory('Contents',function($http){
+	var getLectureByTitle = function(title){
+		return $http({
+			method : 'GET',
+			url : '/api/lectures/getLectureByTitle/' + title
+		})
+		.then(function(resp){
+			return resp.data;
+		})
+		.catch(function(error){
+			return error;
+		})
+	}
 	return {
-		
+		getLectureByTitle : getLectureByTitle
 	}
 })
