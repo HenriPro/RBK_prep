@@ -96,6 +96,18 @@ module.exports={
 		})
 
 	},
+	//get a lecture by the title
+	getLectureByTitle : function( req , res , next){
+		var title = req.params.title;
+
+		Lecture.findOne({ title : title },function( err, lecture ){
+			if(err){
+				next(new Error('Error fitching lecture'));
+			}else{
+				res.send({ lecture : lecture });
+			}
+		})
+	},
 	//edit lecture information
 	editLecture : function ( req, res , next ) {
 		var data = req.body;
