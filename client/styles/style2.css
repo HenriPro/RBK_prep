@@ -18,3 +18,17 @@
 .navbar-inverse .navbar-nav > li > a:focus {
     color: white;
 }
+
+p {
+	font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+h1,h2,h3 {
+	color : #8E0D56;
+}
+
+.example {
+	color: #8E0D56;
+	margin-left : 20px;
+}
