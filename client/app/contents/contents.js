@@ -10,10 +10,9 @@ angular.module('prep.contents',['hljs'])
 	$scope.day = "";
 	$scope.part = "";
 	$scope.questions = [];
-	
+
 	Contents.getLectureByTitle ($routeParams.lecture)
 	.then(function(resp){
-		console.log(resp);
 		$scope.slide.src = resp.lecture.slide;
 		$scope.title = resp.lecture.title;
 		$scope.week = resp.lecture.week;
@@ -21,11 +20,9 @@ angular.module('prep.contents',['hljs'])
 		$scope.day = resp.lecture.day;
 		$scope.part = resp.lecture.part;
 		$scope.questions = resp.lecture.questions;
-		 $scope.str=[];
 
 	 Contents.getLectureQuestions(resp.lecture._id)
 	 .then(function(resp){
-		 console.log(resp);
 		 $scope.questions=resp.questions;
 		})
 	})	
