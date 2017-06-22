@@ -29,7 +29,7 @@ angular.module('prep',[
 		templateUrl: 'app/auth/signin.html',
 		controller: 'SigninController'
 	})
-	.when('/contents/:lecture',{
+	.when('/:lecture',{
 		templateUrl : 'app/contents/contents.html',
 		controller : 'ContentsController'
 	})
