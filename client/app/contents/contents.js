@@ -1,13 +1,16 @@
 angular.module('prep.contents',['hljs'])
 
 .controller('ContentsController',function($scope , Contents, $location, $routeParams){
+	//to check authentication
+	$scope.currentPage= $location.path();	
+	console.log($scope.currentPage)
 	//change URL white space sympoles.
 	var replaced = $routeParams.lecture.split(' ').join('-');
 	$location.path(replaced, false);
 
 	//revers operation to bring lecture from database even after refreshing;
 	$scope.titleURL=$routeParams.lecture.split('-').join(' ');
-	
+
 	$scope.slide = {};
 	$scope.title = "";
 	$scope.week = "";

@@ -1,15 +1,16 @@
 angular.module('prep.signin',[])
 
-.controller('SigninController',function($scope, Auth){
+.controller('SigninController',function($scope, Auth, $location, $window){
 	$scope.user = {};
 
 	$scope.signin = function () {
 		Auth.signin($scope.user)
 		.then(function(resp){
 			if(!resp.token){
-				console.log("there were no response");
+				alert('Wrong Username or Password');
 			}else{
-				console.log(resp.token)
+				$window.localStorage.setItem('rbk.prep', resp.token);
+				$location.path('/');
 			}
 		})
 	}
