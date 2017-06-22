@@ -1,7 +1,13 @@
 angular.module('prep.contents',['hljs'])
 
-.controller('ContentsController',function($scope , Contents, $routeParams){
-	console.log($routeParams.lecture);
+.controller('ContentsController',function($scope , Contents, $location, $routeParams){
+	//change URL white space sympoles.
+	var replaced = $routeParams.lecture.split(' ').join('-');
+	$location.path(replaced, false);
+
+	//revers operation to bring lecture from database even after refreshing;
+	$scope.titleURL=$routeParams.lecture.split('-').join(' ');
+	
 	$scope.slide = {};
 	$scope.title = "";
 	$scope.week = "";
@@ -11,7 +17,7 @@ angular.module('prep.contents',['hljs'])
 	$scope.part = "";
 	$scope.questions = [];
 
-	Contents.getLectureByTitle ($routeParams.lecture)
+	Contents.getLectureByTitle ($scope.titleURL)
 	.then(function(resp){
 		$scope.slide.src = resp.lecture.slide;
 		$scope.title = resp.lecture.title;
