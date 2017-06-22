@@ -15,8 +15,8 @@
 
 <body>
 
-<div ng-controller= "WeeksController" data-spy="affix" data-offset-top="15">
-  <nav class="navbar navbar-inverse" >
+<div ng-controller= "WeeksController" ng-show="currentPage !== '/signin'" data-spy="affix" data-offset-top="15">
+  <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
         <a style="color : white" class="navbar-brand" href="#">RBK</a>
@@ -26,7 +26,7 @@
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Week1
         <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#" ng-repeat="weekLecture in weeks['one']">{{weekLecture['title']}}</a></li>
+            <li><a href="{{weekLecture['title']}}" ng-repeat="weekLecture in weeks['one']">{{weekLecture['title']}}</a></li>
           </ul>
         </li>
         <li class="dropdown">
@@ -40,40 +40,40 @@
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Week3
         <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#" ng-repeat="weekLecture in weeks['three']">{{weekLecture['title']}}</a></li>
+            <li><a href="{{weekLecture['title']}}" ng-repeat="weekLecture in weeks['three']">{{weekLecture['title']}}</a></li>
           </ul>
         </li>
         <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Week4
         <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#" ng-repeat="weekLecture in weeks['four']">{{weekLecture['title']}}</a></li>
+            <li><a href="{{weekLecture['title']}}" ng-repeat="weekLecture in weeks['four']">{{weekLecture['title']}}</a></li>
           </ul>
         </li>
         <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Week5
         <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#" ng-repeat="weekLecture in weeks['five']">{{weekLecture['title']}}</a></li>
+            <li><a href="{{weekLecture['title']}}" ng-repeat="weekLecture in weeks['five']">{{weekLecture['title']}}</a></li>
           </ul>
         </li>
         <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Other
         <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#" ng-repeat="weekLecture in weeks['two']">{{weekLecture['title']}}</a></li>
+            <li><a href="{{weekLecture['title']}}" ng-repeat="weekLecture in weeks['two']">{{weekLecture['title']}}</a></li>
           </ul>
         </li>
         <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Wiki
         <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#" ng-repeat="weekLecture in weeks['two']">{{weekLecture['title']}}</a></li>
+            <li><a href="{{weekLecture['title']}}" ng-repeat="weekLecture in weeks['two']">{{weekLecture['title']}}</a></li>
           </ul>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        <li><a href="#" ng-click="logout()"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
       </ul>
     </div>
   </nav>

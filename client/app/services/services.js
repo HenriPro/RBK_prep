@@ -42,7 +42,8 @@ angular.module('prep.services',[])
 	return{
 		signin : signin,
 		signup : signup,
-		isAuth : isAuth
+		isAuth : isAuth,
+		signout : signout
 	}
 })
 
