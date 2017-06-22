@@ -1,6 +1,6 @@
 angular.module('prep.services',[])
 
-.factory('Auth',function($http){
+.factory('Auth',function($http, $window){
 
 	var signin = function(user) {
 		return $http({
@@ -30,9 +30,14 @@ angular.module('prep.services',[])
 		})
 	};
 	
+	var isAuth = function () {
+    	return !!$window.localStorage.getItem('rbk.prep');
+  	};
+
 	return{
 		signin : signin,
-		signup : signup
+		signup : signup,
+		isAuth : isAuth
 	}
 })
 

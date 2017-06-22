@@ -37,8 +37,30 @@ angular.module('prep',[
       redirectTo: '/'
     });
 })
-.run(['$route', '$rootScope', '$location', function ($route, $rootScope, $location) {
-    var original = $location.path;
+.factory('AttachTokens', function ($window) {
+	var attach = {
+		request: function (object) {
+		var jwt = $window.localStorage.getItem('rbk.prep');
+		if (jwt) {
+			object.headers['x-access-token'] = jwt;
+		}
+		object.headers['Allow-Control-Allow-Origin'] = '*';
+		return object;
+		}
+	};
+	return attach;
+})
+.run(['$route', '$rootScope', '$location' ,'Auth', function ($route, $rootScope, $location, Auth) {
+	
+	//code to check user authentication    
+	$rootScope.$on('$routeChangeStart', function (evt, next, current) {
+		if (next.$$route && !Auth.isAuth()) {
+			$location.path('/signin');
+		}
+ 	});
+
+	//code to change url name
+	var original = $location.path;
     $location.path = function (path, reload) {
         if (reload === false) {
             var lastRoute = $route.current;
