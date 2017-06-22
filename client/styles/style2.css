@@ -26,7 +26,11 @@ h1,h2,h3 {
 	color : #8E0D56;
 }
 
-.example {
-	color: #8E0D56;
-	margin-left : 20px;
+.affix {
+      top: 0;
+      width: 100%;
+}
+
+.affix + .container-fluid {
+     padding-top: 70px;
 }
