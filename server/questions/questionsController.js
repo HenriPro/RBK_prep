@@ -77,7 +77,6 @@ module.exports={
 		//search for all the questions that have the same lecture ID.
 		Question.find({lectureID : lectureID},
 		function(err,questions){
-			console.log(questions);
 			if(err){
 				next(new Error("There was an error"));
 			}else{
