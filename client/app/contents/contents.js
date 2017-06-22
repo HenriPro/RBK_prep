@@ -1,4 +1,4 @@
-angular.module('prep.contents',[])
+angular.module('prep.contents',['hljs'])
 
 .controller('ContentsController',function($scope , Contents, $routeParams){
 	console.log($routeParams.lecture);
@@ -27,15 +27,6 @@ angular.module('prep.contents',[])
 	 .then(function(resp){
 		 console.log(resp);
 		 $scope.questions=resp.questions;
-		 for(var i=0; i< $scope.questions.length; i++){
-			 if($scope.questions[i].example){
-			 	$scope.questions[i].example = $scope.questions[i].example.split('\n');				 
-			 }
-		 }
-	})
-	// var s = '<b>' + "some text here" +'</b>';
-	// var temp = document.getElementById('spec');
-	// temp.innerHTML = s;
-	// var htmlObject = temp.firstChild;
+		})
 	})	
 })

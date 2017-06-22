@@ -15,7 +15,8 @@
             <h3><u>Basic Requirments</u></h3>
             <div ng-repeat="basicReq in questions | filter: {'type': 'Basic Requirements'} | orderBy: 'number'">
                 <p>{{basicReq.number}}.{{basicReq.questionText}}</p>
-                <p class="example" ng-repeat="example in basicReq.example"><b>{{example}}</b></p>
+                <!--using hljs directive to show highlight code syntax-->
+                <div hljs ng-if='basicReq.example' hljs-source="basicReq.example" ></div>
             </div>
             <h3><u>More Practice</u></h3>
             <div ng-repeat="morePrac in questions | filter: {'type' : 'More Practice'} | orderBy: 'number'">
