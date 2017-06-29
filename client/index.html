@@ -7,15 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/style2.css">
-
      <!-- link to highlight code syntax style using highlight.js -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">
-    
+    <!-- css link to styling angualr calendar-->
+    <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.css"/>
 </head>
 
 <body>
-
-<div ng-controller= "WeeksController" ng-show="currentPage !== '/signin'" data-spy="affix" data-offset-top="15">
+<div ng-show="authenticated">
+<div ng-controller= "WeeksController" data-spy="affix" data-offset-top="15">
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -78,6 +78,7 @@
     </div>
   </nav>
 </div>
+</div>
 
 <div ng-view></div>
 
@@ -92,6 +93,13 @@
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-mocks/angular-mocks.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
+
+<!-- script for angular calendar -->
+<script src="bower_components/moment/min/moment.min.js"></script>
+<script src="bower_components/angular-ui-calendar/src/calendar.js"></script>
+<script src="bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+<script src="bower_components/fullcalendar/dist/gcal.js"></script>
+
 <script src="angular-highlightjs.min.js"></script>
 <script src="app/auth/auth.js"></script>
 <script src="app/contents/contents.js"></script>
