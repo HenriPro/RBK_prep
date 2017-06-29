@@ -1,12 +1,16 @@
 angular.module('prep.contents',['hljs'])
 
-.controller('ContentsController',function($scope , Contents, $location, $routeParams){
+.controller('ContentsController',function($scope , Contents, $location, $routeParams, $rootScope){
 	//change URL white space sympoles.
 	var replaced = $routeParams.lecture.split(' ').join('-');
 	$location.path(replaced, false);
 
 	//revers operation to bring lecture from database even after refreshing;
 	$scope.titleURL=$routeParams.lecture.split('-').join(' ');
+
+	$rootScope.authenticated= true;
+	console.log("content",$rootScope.authenticated)
+
 
 	$scope.slide = {};
 	$scope.title = "";
