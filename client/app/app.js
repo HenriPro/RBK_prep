@@ -2,6 +2,7 @@ angular.module('prep',[
 	'prep.signin',
 	'prep.contents',
 	'prep.weeks',
+	'prep.calendar',
 	'prep.services',
 	'ngRoute'
 ])
@@ -28,6 +29,10 @@ angular.module('prep',[
 	.when('/signin',{
 		templateUrl: 'app/auth/signin.html',
 		controller: 'SigninController'
+	})
+	.when('/calendar',{
+		templateUrl : 'app/calendar/calendar.html',
+		controller : 'CalendarController'
 	})
 	.when('/:lecture',{
 		templateUrl : 'app/contents/contents.html',
