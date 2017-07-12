@@ -36,7 +36,7 @@ angular.module('prep.services',[])
 
 	var signout = function () {
     	$window.localStorage.removeItem('rbk.prep');
-    	$location.path('/signin');
+    	$location.path('/');
   	};
 
 	return{

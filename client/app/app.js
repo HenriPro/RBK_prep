@@ -26,6 +26,10 @@ angular.module('prep',[
 	]);
 	
 	$routeProvider
+	.when('/',{
+		templateUrl: 'app/auth/signin.html',
+		controller: 'SigninController'
+	})
 	.when('/signin',{
 		templateUrl: 'app/auth/signin.html',
 		controller: 'SigninController'
