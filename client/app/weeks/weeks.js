@@ -3,6 +3,7 @@ angular.module('prep.weeks',[])
 .controller('WeeksController',function($scope , $location, Weeks, Auth,$window, $rootScope){
     $scope.weeks = {};
 	$rootScope.authenticated= true;
+	
 	console.log("weeks",$rootScope.authenticated)
 	$scope.getAllWeeks = function (){
 		Weeks.getLecturesByWeek(1)
