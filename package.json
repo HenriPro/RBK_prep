@@ -4,8 +4,7 @@
   "description": "prep website",
   "main": "index.js",
   "scripts": {
-    "start": "node server/server.js",
-    "preinstall": "bower install"
+    "start": "node server/server.js"
   },
   "repository": {
     "type": "git",
