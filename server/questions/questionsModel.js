@@ -10,8 +10,9 @@ var QuestionsSchema= new mongoose.Schema({
 		required: true
 	},
 	number : Number,
-	example : String,
+	example : String,	
 	image : String,
+	postQuestion : String,
 	lectureID: {type: mongoose.Schema.Types.ObjectId, ref: 'questions'}
 })
 

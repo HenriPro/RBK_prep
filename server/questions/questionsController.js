@@ -10,7 +10,8 @@ module.exports={
 		var image = req.body.image;
 		var lectureID = req.body.lectureID;
 		var numb = req.body.number;
-
+		var postQuestion = req.body.postQuestion;
+		
 		//check if the question exists, if not create new one and add it.
 		Question.findOne({ questionText : questionText },function(err,results){
 			if(results){
@@ -22,6 +23,7 @@ module.exports={
 					example : example ,
 					image : image ,
 					lectureID : lectureID,
+					postQuestion : postQuestion ,
 					number : numb
 				},function(err,question){
 					if(err){
