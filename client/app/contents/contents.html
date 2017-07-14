@@ -18,14 +18,21 @@
                 <!--using hljs directive to show highlight code syntax-->
                 <div hljs ng-if='basicReq.example' hljs-source="basicReq.example" ></div>
                 <p ng-if='basicReq.postQuestion'>{{basicReq.postQuestion}}</p>
+                <img ng-if="basicReq.image" src="{{basicReq.image}}" />
             </div>
             <h3 ng-if= "MorePractice"><u>More Practice</u></h3>
             <div ng-repeat="morePrac in questions | filter: {'type' : 'More Practice'} | orderBy: 'number'">
                 <p>{{morePrac.number}}.{{morePrac.questionText}}</p>
+                <div hljs ng-if='morePrac.example' hljs-source="morePrac.example" ></div>
+                <p ng-if='morePrac.postQuestion'>{{morePrac.postQuestion}}</p>
+                <img ng-if="morePrac.image" src="{{morePrac.image}}" />
             </div>
             <h3 ng-if= "Advanced"><u>Advanced</u></h3>
             <div ng-repeat="advanced in questions | filter: {'type' : 'Advanced'} | orderBy: 'number'">
                 <p>{{advanced.number}}.{{advanced.questionText}}</p>
+                <div hljs ng-if='advanced.example' hljs-source="advanced.example" ></div>
+                <img ng-if="advanced.image" src="{{advanced.image}}" />
+                <p ng-if='advanced.postQuestion'>{{advanced.postQuestion}}</p>
             </div>
         </div>
     </div>
