@@ -38,10 +38,17 @@ angular.module('prep',[
 		templateUrl : 'app/calendar/calendar.html',
 		controller : 'CalendarController'
 	})
+	.when('/chromeConsole',{
+		templateUrl : 'app/other/ChromeConsole.html'
+	})
+	.when('/sublimeText',{
+		templateUrl : 'app/other/SublimeText.html'
+	})
 	.when('/:lecture',{
 		templateUrl : 'app/contents/contents.html',
 		controller : 'ContentsController'
 	})
+
 	.otherwise({
       redirectTo: '/'
     });
