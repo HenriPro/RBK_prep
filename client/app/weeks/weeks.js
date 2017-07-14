@@ -4,7 +4,6 @@ angular.module('prep.weeks',[])
     $scope.weeks = {};
 	$rootScope.authenticated= true;
 	
-	console.log("weeks",$rootScope.authenticated)
 	$scope.getAllWeeks = function (){
 		Weeks.getLecturesByWeek(1)
 		.then(function(resp){
@@ -30,7 +29,6 @@ angular.module('prep.weeks',[])
 
 	$scope.logout=function(){
 		Auth.signout();
-		console.log($scope.isAuth , $window.localStorage.getItem('rbk.prep'))
 	}
 
 	$scope.isAuth = Auth.isAuth();

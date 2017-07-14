@@ -7,7 +7,6 @@ angular.module('prep.signin',[])
 	$scope.signin = function () {
 		Auth.signin($scope.user)
 		.then(function(resp){
-			console.log(resp.token)
 			if(!resp.token){
 				alert('Wrong Username or Password');
 			}else{
