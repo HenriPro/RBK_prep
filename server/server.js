@@ -11,11 +11,11 @@ var mongoURI = "mongodb://Fatima:1234@ds157342.mlab.com:57342/prep" || 'mongodb:
 
 mongoose.connect(mongoURI);
 
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function () {
- console.log('Mongodb connection open');
-});
+// var db = mongoose.connection;
+// db.on('error', console.error.bind(console, 'connection error:'));
+// db.once('open', function () {
+//  console.log('Mongodb connection open');
+// });
 
 var port= process.env.PORT || 8000;
 
