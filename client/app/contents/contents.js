@@ -9,8 +9,6 @@ angular.module('prep.contents',['hljs'])
 	$scope.titleURL=$routeParams.lecture.split('-').join(' ');
 
 	$rootScope.authenticated= true;
-	console.log("content",$rootScope.authenticated)
-
 
 	$scope.slide = {};
 	$scope.title = "";
@@ -20,6 +18,9 @@ angular.module('prep.contents',['hljs'])
 	$scope.day = "";
 	$scope.part = "";
 	$scope.questions = [];
+	$scope.BasicRequirments = false;
+	$scope.MorePractice = false;
+	$scope.Advanced = false
 
 	Contents.getLectureByTitle ($scope.titleURL)
 	.then(function(resp){
@@ -33,7 +34,22 @@ angular.module('prep.contents',['hljs'])
 
 	 Contents.getLectureQuestions(resp.lecture._id)
 	 .then(function(resp){
-		 $scope.questions=resp.questions;
-		})
+		$scope.questions=resp.questions;
+		//check if there is advanced,more practice and replace ; in the examples with new line
+		for(var i=0; i < $scope.questions.length; i++){
+		 	if($scope.questions[i].type === "Basic Requirements"){
+		 		$scope.BasicRequirments = true;
+		 	}else if($scope.questions[i].type === "More Practice"){
+		 		$scope.MorePractice=true;
+		 	}else if($scope.questions[i].type === "Advanced"){
+		 		$scope.Advanced= true;
+		 	}
+		 	if($scope.questions[i]['example']){
+			 	if($scope.questions[i]['example'].indexOf(';') > -1){
+			 		$scope.questions[i]['example']=$scope.questions[i]['example'].replace(/;/g, "\r\n");
+			 	}
+			}
+		}
+	  })
 	})	
 })
