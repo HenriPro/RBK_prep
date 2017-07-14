@@ -1,35 +1,22 @@
-<br><br>
-<div class="container">
-      <div id="conBorder">
-      <div class="row">
-        <div class="col-md-6 hidden-xs image-cover1">
-             <img id="image" src="images/a1.jpg" class="img-responsive"/>
-             <h2 class="texth2"> Sign in to RBK Prep</h2>
-             <p class="texth2">From here you can sign in into your prep site.</p>
-        </div>
-         <div class="col-md-6">
-             <div class="col-md-12 inside">
-                 <br>
-                 <br>
-                  
-                  <h3 class="sign">Sign In</h3>
-                  <!--<div class="col-md-12">
-                  </div>-->
-                    <form>
-                      <div class="form-group">
-                          <label for="exampleInputEmail1">Username<span>*</span></label>
-                          <input class="form-control" id="input" placeholder="username" ng-model="user.userName" >
-                      </div>
-                      <div class="form-group">
-                          <label for="exampleInputPassword1">Password<span>*</span></label>
-                          <input type="password" class="form-control" id="input" placeholder="Password" ng-model="user.password">
-                       </div>
-                        <input type="submit" class="btn btn-primary btn-block" ng-click="signin()">                  
-                    </form>
-             </div>
-            </div>
-          
-         </div>
-       </div>
-    </div>
 
+  
+
+ <link rel="stylesheet" href="styles/style.css">
+    <div class = "container">
+        <div class="wrapper">
+            <form name="Login_Form" class="form-signin">       
+                <h2 class="form-signin-heading">Sign In To RBK</h2>
+                <img src="images/img1.jpg"  id="img"><br>
+                <div class="col-sm-2"></div>
+                <div class="col-md-12">
+                    <i class="fa fa-user"></i> <strong id="strong"> Username: </strong>
+                    <input type="text" class="form-control" name="Username" placeholder="username" ng-model="user.userName"/><br>
+                    <i class="fa fa-pencil" aria-hidden="true"></i><strong id="strong"> Password: </strong>
+                    <input type="password" class="form-control" name="Password" placeholder="Password" ng-model="user.password"/>            
+                        <button class="btn btn-lg btn-basic btn-block" name="Submit" value="Login" type="Submit" ng-click="signin()"> Login  
+                        <span class="glyphicon glyphicon-log-in"></span></a></button>
+                        </div>
+                    </form>           
+                </div>
+            </div>
+ 
