@@ -10,7 +10,7 @@ angular.module('prep.contents',['hljs'])
 
 	$rootScope.authenticated= true;
 
-	$scope.slide = {};
+	$scope.slide = {}
 	$scope.title = "";
 	$scope.week = "";
 	$scope.questions = [];
@@ -32,32 +32,41 @@ angular.module('prep.contents',['hljs'])
 		$scope.part = resp.lecture.part;
 		$scope.questions = resp.lecture.questions;
 
-	 Contents.getLectureQuestions(resp.lecture._id)
-	 .then(function(resp){
-		$scope.questions=resp.questions;
-		//check if there is advanced,more practice and replace ; in the examples with new line
-		for(var i=0; i < $scope.questions.length; i++){
-		 	if($scope.questions[i].type === "Basic Requirements"){
-		 		$scope.BasicRequirments = true;
-		 	}else if($scope.questions[i].type === "More Practice"){
-		 		$scope.MorePractice=true;
-		 	}else if($scope.questions[i].type === "Advanced"){
-		 		$scope.Advanced= true;
-		 	}
-		 	if($scope.questions[i]['example']){
-			 	if($scope.questions[i]['example'].indexOf(';;') > -1){
-			 		$scope.questions[i]['example']=$scope.questions[i]['example'].replace(/;;/g, "\r\n");
-			 	}
-			}
-			if($scope.questions[i]['postQuestion']){
-			 	if($scope.questions[i]['postQuestion'].indexOf('\n') > -1){
-			 		$scope.questions[i]['postQuestion']=$scope.questions[i]['postQuestion'].replace(/\n/g, "\r\n");
-			 	}
-			 	if($scope.questions[i]['postQuestion'].indexOf('\t') > -1){
-			 		$scope.questions[i]['postQuestion']=$scope.questions[i]['postQuestion'].replace(/\t/g, "     ");
-			 	}
-			}
+		//handle the case of multiple lectures;
+		if($scope.slide.src.indexOf('&&') > -1){
+			$scope.slide.src=$scope.slide.src.split('&&');
+		}else{
+			var temp=$scope.slide.src;
+			$scope.slide.src=[];
+			$scope.slide.src[0]=temp;
 		}
-	  })
-	})	
+
+		Contents.getLectureQuestions(resp.lecture._id)
+		.then(function(resp){
+			$scope.questions=resp.questions;
+			//check if there is advanced,more practice and replace ; in the examples with new line
+			for(var i=0; i < $scope.questions.length; i++){
+			 	if($scope.questions[i].type === "Basic Requirements"){
+			 		$scope.BasicRequirments = true;
+			 	}else if($scope.questions[i].type === "More Practice"){
+			 		$scope.MorePractice=true;
+			 	}else if($scope.questions[i].type === "Advanced"){
+			 		$scope.Advanced= true;
+			 	}
+			 	if($scope.questions[i]['example']){
+				 	if($scope.questions[i]['example'].indexOf(';;') > -1){
+				 		$scope.questions[i]['example']=$scope.questions[i]['example'].replace(/;;/g, "\r\n");
+				 	}
+				}
+				if($scope.questions[i]['postQuestion']){
+				 	if($scope.questions[i]['postQuestion'].indexOf('\n') > -1){
+				 		$scope.questions[i]['postQuestion']=$scope.questions[i]['postQuestion'].replace(/\n/g, "\r\n");
+				 	}
+				 	if($scope.questions[i]['postQuestion'].indexOf('\t') > -1){
+				 		$scope.questions[i]['postQuestion']=$scope.questions[i]['postQuestion'].replace(/\t/g, "     ");
+				 	}
+				}
+			}
+		  })
+		})	
 })

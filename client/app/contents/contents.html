@@ -5,7 +5,9 @@
            <!--  <h2>Week: {{week}} Day: {{day}}</h2> -->
             <h2>{{title}}</h2>
             <p>{{subTitle}}</p>
-            <iframe src={{slide.src}} frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+            <iframe src={{slide.src[0]}} frameborder="0" width="960" height="569" 
+            allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+            <iframe ng-if="slide.src[1]" src={{slide.src[1]}} frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             </div>
     </div>
     <div class= "row">
