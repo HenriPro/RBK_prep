@@ -49,6 +49,14 @@ angular.module('prep.contents',['hljs'])
 			 		$scope.questions[i]['example']=$scope.questions[i]['example'].replace(/;;/g, "\r\n");
 			 	}
 			}
+			if($scope.questions[i]['postQuestion']){
+			 	if($scope.questions[i]['postQuestion'].indexOf('\n') > -1){
+			 		$scope.questions[i]['postQuestion']=$scope.questions[i]['postQuestion'].replace(/\n/g, "\r\n");
+			 	}
+			 	if($scope.questions[i]['postQuestion'].indexOf('\t') > -1){
+			 		$scope.questions[i]['postQuestion']=$scope.questions[i]['postQuestion'].replace(/\t/g, "     ");
+			 	}
+			}
 		}
 	  })
 	})	
