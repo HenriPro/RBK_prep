@@ -23,7 +23,7 @@
                 <img ng-if="basicReq.image" src="{{basicReq.image}}" />
             </div>
             <h3 ng-if= "MorePractice"><u>More Practice</u></h3>
-            <div ng-repeat="morePrac in questions | filter: {'type' : 'More Practice'} | orderBy: 'number'">
+            <div ng-repeat="morePrac in questions | filter: {'type' : 'More Practice'}">
                 <p>{{morePrac.number}}.{{morePrac.questionText}}</p>
                 <div hljs ng-if='morePrac.example' hljs-source="morePrac.example" ></div>
                 <pre ng-if='morePrac.postQuestion'>{{morePrac.postQuestion}}</pre>

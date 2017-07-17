@@ -57,6 +57,9 @@ angular.module('prep.contents',['hljs'])
 				 	if($scope.questions[i]['example'].indexOf(';;') > -1){
 				 		$scope.questions[i]['example']=$scope.questions[i]['example'].replace(/;;/g, "\r\n");
 				 	}
+				 	if($scope.questions[i]['example'].indexOf('\t') > -1){
+				 		$scope.questions[i]['example']=$scope.questions[i]['example'].replace(/\t/g, "     ");
+				 	}
 				}
 				if($scope.questions[i]['postQuestion']){
 				 	if($scope.questions[i]['postQuestion'].indexOf('\n') > -1){
