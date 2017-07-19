@@ -7,6 +7,7 @@ module.exports={
 		var questionText =req.body.questionText;
 		var	slide =req.body.slide;
 		var lecture = req.body.lecture;
+		var number = req.body.number;
 
 		Solutions.findOne({questionText : questionText},function(err,results){
 			if(results){

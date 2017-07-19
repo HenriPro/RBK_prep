@@ -5,10 +5,8 @@ var solutionsSchema = new mongoose.Schema({
 	questionText : String,
 	solution : String,
 	slide : String,
-	lecture : {
-		required : true,
-		type : String
-	}
+	lecture : String,
+	number : Number
 })
 
 module.exports=mongoose.model('answers',solutionsSchema);
