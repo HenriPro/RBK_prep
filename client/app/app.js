@@ -3,6 +3,7 @@ angular.module('prep',[
 	'prep.contents',
 	'prep.weeks',
 	'prep.calendar',
+	'prep.solutions',
 	'prep.services',
 	'ngRoute'
 ])
@@ -43,6 +44,10 @@ angular.module('prep',[
 	})
 	.when('/sublimeText',{
 		templateUrl : 'app/other/SublimeText.html'
+	})
+	.when('/solutions/:lecture',{
+		templateUrl : 'app/solutions/solutions.html',
+		controller : 'solutionsController'
 	})
 	.when('/:lecture',{
 		templateUrl : 'app/contents/contents.html',

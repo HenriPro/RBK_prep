@@ -96,3 +96,20 @@ angular.module('prep.services',[])
 		getLectureQuestions : getLectureQuestions
 	}
 })
+.factory('Solutions',function($http){
+	var getLectureSolutions = function(lecture) { 
+		return $http({
+			method : 'GET' ,
+			url : '/api/solutions/getAllLectureSolutions/' + lecture
+		})
+		.then(function(resp){
+			return resp.data;
+		})
+		.catch(function(error){
+			return error;
+		})
+	}
+	return {
+		getLectureSolutions : getLectureSolutions
+	}
+})
