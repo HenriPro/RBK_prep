@@ -39,5 +39,21 @@ module.exports={
 				next(new Error('No lecture solution was found !'))
 			}
 		})
+	},
+	getAllSolutionLectures : function (req, res, next) {
+		Solutions.find({},function(err,results){
+			var solutionLecture = [];
+			if(results){
+				for(var i =0 ; i < results.length ; i++){
+					if(solutionLecture.indexOf(results[i]['lecture']) === -1){
+						solutionLecture.push(results[i]['lecture']);
+					}
+				}
+				console.log(solutionLecture)
+				res.send({ solutions : solutionLecture })
+			}else{
+				next(new Error('No solution lecture was found !'));
+			}
+		})
 	}
 }
