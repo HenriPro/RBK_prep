@@ -1,6 +1,7 @@
 var usersController=require('../users/usersController.js');
 var questionsController= require('../questions/questionsController.js');
 var lecturesController=require('../lectures/lecturesController.js');
+var solutionsController = require('../solutions/solutionsController.js');
 const path = require('path');
 
 module.exports=function (app, express){
@@ -42,6 +43,14 @@ module.exports=function (app, express){
 	app.put('/api/lectures/editLecture',lecturesController.editLecture);
 	app.delete('/api/lectures/removeLecture/:id', lecturesController.removeLecture)
 
+	////////////////////////////////////////////////////////
+	//													///
+	//				Solutions Routes					///	
+	//													///
+	///////////////////////////////////////////////////////
+
+	app.post('/api/solutions/addSolution', solutionsController.addSolution);
+	
 	//script for handling any request that comes from the client that are asked when the client refresh the page that requires # before it.
 	app.all('*', (req, res) => {
 	console.log(`[TRACE] Server 404 request: ${req.originalUrl}`);
