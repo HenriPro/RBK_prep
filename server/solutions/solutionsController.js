@@ -3,7 +3,6 @@ var Solutions = require('./solutionsModel.js')
 module.exports={
 	addSolution : function(req, res, next) {
 		var solution = req.body.solution;
-		var type= req.body.type;
 		var questionText =req.body.questionText;
 		var	slide =req.body.slide;
 		var lecture = req.body.lecture;
@@ -15,10 +14,10 @@ module.exports={
 			}else{
 				Solutions.create({
 					solution : solution,
-					type : type,
 					questionText : questionText,
 					slide : slide,
-					lecture : lecture
+					lecture : lecture,
+					number : number
 				},function(err,answer){
 					if(err){
 						next(new Error('Error adding new solution'))

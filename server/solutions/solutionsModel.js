@@ -1,7 +1,6 @@
 var mongoose = require('mongoose');
 
 var solutionsSchema = new mongoose.Schema({
-	type : String,
 	questionText : String,
 	solution : String,
 	slide : String,
