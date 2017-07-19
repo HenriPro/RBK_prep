@@ -57,11 +57,11 @@
             <li><a href="{{weekLecture['title']}}" ng-repeat="weekLecture in weeks['five']">{{weekLecture['title']}}</a></li>
           </ul>
         </li>-->
-        <li class="dropdown" ng-controller="solutionsController">
+        <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Solutions
         <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="/solutions/{{solution}}" ng-repeat="solution in solutions">{{solution}}</a></li>
+            <li><a href="/solutions/{{solution}}" ng-repeat="solution in Solutions">{{solution}}</a></li>
           </ul>
         </li> 
         <li class="dropdown">

@@ -1,8 +1,9 @@
 angular.module('prep.weeks',[])
 
-.controller('WeeksController',function($scope , $location, Weeks, Auth,$window, $rootScope){
+.controller('WeeksController',function($scope , $location, Weeks, Auth,$window, $rootScope, Solutions){
     $scope.weeks = {};
 	$rootScope.authenticated= true;
+	$scope.Solutions=[];
 	
 	$scope.getAllWeeks = function (){
 		Weeks.getLecturesByWeek(1)
@@ -27,10 +28,18 @@ angular.module('prep.weeks',[])
 		})
 	}
 
+	$scope.getAllSolutionLectures = function(){
+		Solutions.getAllSolutionLectures()
+		.then(function(resp){
+			$scope.Solutions=resp.solutions;
+		})
+	}
+
 	$scope.logout=function(){
 		Auth.signout();
 	}
 
 	$scope.isAuth = Auth.isAuth();
 	$scope.getAllWeeks();
+	$scope.getAllSolutionLectures();
 })

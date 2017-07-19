@@ -10,7 +10,6 @@ angular.module('prep.solutions',['hljs'])
 	$scope.getLectureSolutions = function(){
 		Solutions.getLectureSolutions($routeParams.lecture)
 		.then(function(resp){
-			console.log(resp.answers);
 			$scope.solutionsQuestions = resp.answers;
 			if(resp.answers[0]){
 				if(resp.answers[0].slide){

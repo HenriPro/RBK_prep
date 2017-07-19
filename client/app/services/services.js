@@ -109,7 +109,21 @@ angular.module('prep.services',[])
 			return error;
 		})
 	}
+
+	var getAllSolutionLectures = function(){
+		return $http({
+			method : 'GET',
+			url : '/api/solutions/getAllSolutionLectures'
+		})
+		.then(function(resp){
+			return resp.data;
+		})
+		.catch(function(error){
+			return error;
+		})
+	}
 	return {
-		getLectureSolutions : getLectureSolutions
+		getLectureSolutions : getLectureSolutions,
+		getAllSolutionLectures : getAllSolutionLectures
 	}
 })
