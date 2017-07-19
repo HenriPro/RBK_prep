@@ -1,4 +1,4 @@
-var solutions = require('./solutionsModel.js')
+var Solutions = require('./solutionsModel.js')
 
 module.exports={
 	addSolution : function(req, res, next) {
@@ -8,11 +8,11 @@ module.exports={
 		var	slide =req.body.slide;
 		var lecture = req.body.lecture;
 
-		solutions.findOne({questionText : questionText},function(err,results){
+		Solutions.findOne({questionText : questionText},function(err,results){
 			if(results){
 				next(new Error('Question Already exist'));
 			}else{
-				solutions.create({
+				Solutions.create({
 					solution : solution,
 					type : type,
 					questionText : questionText,
@@ -25,6 +25,17 @@ module.exports={
 						res.send({ answer: answer });
 					}
 				})
+			}
+		})
+	},
+	getAllLectureSolutions : function ( req, res, next) {
+		var lecture = req.params.lecture;
+
+		Solutions.find({lecture : lecture},function(err,results){
+			if(results){
+				res.send({ answers : results });
+			}else{
+				next(new Error('No lecture solution was found !'))
 			}
 		})
 	}

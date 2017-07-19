@@ -50,6 +50,7 @@ module.exports=function (app, express){
 	///////////////////////////////////////////////////////
 
 	app.post('/api/solutions/addSolution', solutionsController.addSolution);
+	app.get('/api/solutions/getAllLectureSolutions/:lecture' , solutionsController.getAllLectureSolutions);
 	
 	//script for handling any request that comes from the client that are asked when the client refresh the page that requires # before it.
 	app.all('*', (req, res) => {
