@@ -21,9 +21,10 @@ angular.module('prep.contents',['hljs'])
 	$scope.BasicRequirments = false;
 	$scope.MorePractice = false;
 	$scope.Advanced = false
-
+	
 	Contents.getLectureByTitle ($scope.titleURL)
 	.then(function(resp){
+		
 		$scope.slide.src = resp.lecture.slide;
 		$scope.title = resp.lecture.title;
 		$scope.week = resp.lecture.week;
