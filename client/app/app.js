@@ -45,6 +45,9 @@ angular.module('prep',[
 	.when('/sublimeText',{
 		templateUrl : 'app/other/SublimeText.html'
 	})
+	.when('/debugging',{
+		templateUrl : 'app/other/debugging.html'
+	})
 	.when('/challenge',{
 		templateUrl : 'app/assessments/challenge.html'
 	})
