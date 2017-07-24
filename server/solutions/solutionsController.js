@@ -48,7 +48,6 @@ module.exports={
 						solutionLecture.push(results[i]['lecture']);
 					}
 				}
-				console.log(solutionLecture)
 				res.send({ solutions : solutionLecture })
 			}else{
 				next(new Error('No solution lecture was found !'));
