@@ -51,6 +51,9 @@ angular.module('prep',[
 	.when('/challenge',{
 		templateUrl : 'app/assessments/challenge.html'
 	})
+	.when('/challenge2',{
+		templateUrl : 'app/assessments/challenge2.html'
+	})
 	.when('/solutions/:lecture',{
 		templateUrl : 'app/solutions/solutions.html',
 		controller : 'solutionsController'
