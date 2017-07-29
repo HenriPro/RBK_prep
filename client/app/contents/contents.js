@@ -21,6 +21,7 @@ angular.module('prep.contents',['hljs'])
 	$scope.BasicRequirments = false;
 	$scope.MorePractice = false;
 	$scope.Advanced = false
+	$scope.NightmareMode = false;
 	
 	Contents.getLectureByTitle ($scope.titleURL)
 	.then(function(resp){
@@ -53,7 +54,10 @@ angular.module('prep.contents',['hljs'])
 			 		$scope.MorePractice=true;
 			 	}else if($scope.questions[i].type === "Advanced"){
 			 		$scope.Advanced= true;
+			 	}else if($scope.questions[i].type === "Nightmare Mode"){
+			 		$scope.NightmareMode= true;
 			 	}
+
 			 	if($scope.questions[i]['example']){
 				 	if($scope.questions[i]['example'].indexOf(';;') > -1){
 				 		$scope.questions[i]['example']=$scope.questions[i]['example'].replace(/;;/g, "\r\n");

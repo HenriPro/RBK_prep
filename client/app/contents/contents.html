@@ -36,6 +36,13 @@
                 <img ng-if="advanced.image" src="{{advanced.image}}" />
                 <pre ng-if='advanced.postQuestion'>{{advanced.postQuestion}}</pre>
             </div>
+            <h3 ng-if= "NightmareMode"><u>Nightmare Mode(optional, only if you have finished the above)</u></h3>
+            <div ng-repeat="NightmareMode in questions | filter: {'type' : 'Nightmare Mode'} | orderBy: 'number'">
+                <p>{{NightmareMode.number}}.{{NightmareMode.questionText}}</p>
+                <div hljs ng-if='NightmareMode.example' hljs-source="NightmareMode.example" ></div>
+                <img ng-if="NightmareMode.image" src="{{NightmareMode.image}}" />
+                <pre ng-if='NightmareMode.postQuestion'>{{NightmareMode.postQuestion}}</pre>
+            </div>
         </div>
     </div>
 </div>
