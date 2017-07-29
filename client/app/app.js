@@ -48,6 +48,9 @@ angular.module('prep',[
 	.when('/debugging',{
 		templateUrl : 'app/other/debugging.html'
 	})
+	.when('/lightning',{
+		templateUrl : 'app/wiki/lightning.html'
+	})
 	.when('/challenge',{
 		templateUrl : 'app/assessments/challenge.html'
 	})
