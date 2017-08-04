@@ -42,6 +42,7 @@
         <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="{{weekLecture['title']}}" ng-repeat="weekLecture in weeks['three'] | orderBy: ['day','part']">{{weekLecture['day']}}-{{weekLecture['part']}}.{{weekLecture['title']}}</a></li>
+            <li><a href="/chromeConsole">chrom</a></li>
           </ul>
         </li>
           <!--
@@ -49,9 +50,11 @@
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Week4
         <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="{{weekLecture['title']}}" ng-repeat="weekLecture in weeks['four']">{{weekLecture['title']}}</a></li>
+            <li><a href="{{weekLecture['title']}}" ng-repeat="weekLecture in weeks['four']"></a></li>
+            <li><a href="/calendar">calendar</a></li>
           </ul>
         </li>
+        
         <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Week5
         <span class="caret"></span></a>
@@ -65,6 +68,7 @@
           <ul class="dropdown-menu">
             <li><a href="/challenge"> Challenge 1 </a></li>
             <li><a href="/challenge2"> Challenge 2 </a></li>
+            <li><a href="/challenge3"> Challenge 3 </a></li>
           </ul>
         </li>
         <li class="dropdown">

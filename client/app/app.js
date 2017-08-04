@@ -60,6 +60,9 @@ angular.module('prep',[
 	.when('/challenge2',{
 		templateUrl : 'app/assessments/challenge2.html'
 	})
+	.when('/challenge3',{
+		templateUrl : 'app/assessments/challenge3.html'
+	})
 	.when('/solutions/:lecture',{
 		templateUrl : 'app/solutions/solutions.html',
 		controller : 'solutionsController'
