@@ -19,16 +19,16 @@
     <div class="container-fluid">
       <div class="navbar-header">
         <a style="color : white" class="navbar-brand" href="/calendar">RBK</a>
-      </div> 
+      </div>
       <ul class="nav navbar-nav">
-   <!--      <li class="dropdown">
+     <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Week1
         <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="{{weekLecture['title']}}" ng-repeat="weekLecture in weeks['one'] | orderBy: ['day','part']">{{weekLecture['day']}}-{{weekLecture['part']}}. {{weekLecture['title']}}</a></li>
           </ul>
         </li>
-    
+
          <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Week2
         <span class="caret"></span></a>
@@ -36,24 +36,22 @@
             <li><a href="{{weekLecture['title']}}" ng-repeat="weekLecture in weeks['two'] | orderBy: ['day','part']">{{weekLecture['day']}}-{{weekLecture['part']}}. {{weekLecture['title']}}</a></li>
           </ul>
         </li>
-        
+
         <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Week3
         <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="{{weekLecture['title']}}" ng-repeat="weekLecture in weeks['three'] | orderBy: ['day','part']">{{weekLecture['day']}}-{{weekLecture['part']}}.{{weekLecture['title']}}</a></li>
-          </ul>
-        </li> -->
-          <!--
+        </ul>
         <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Week4
         <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="{{weekLecture['title']}}" ng-repeat="weekLecture in weeks['four']"></a></li>
-            <li><a href="/calendar">calendar</a></li>
+            <li><a href="{{weekLecture['title']}}" ng-repeat="weekLecture in weeks['four'] | orderBy: ['day','part']">{{weekLecture['day']}}-{{weekLecture['part']}}.{{weekLecture['title']}}</a></li>
           </ul>
         </li>
-        
+
+<!--
         <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Week5
         <span class="caret"></span></a>
@@ -70,13 +68,13 @@
             <li><a href="/challenge3"> Challenge 3 </a></li>
           </ul>
         </li>
-        <!-- <li class="dropdown">
+        <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Solutions
         <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="/solutions/{{solution}}" ng-repeat="solution in Solutions">{{solution}}</a></li>
           </ul>
-        </li> 
+        </li>
         <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Other
         <span class="caret"></span></a>
@@ -86,7 +84,10 @@
             <li><a href="/debugging">Debugging</a></li>
             <li><a href="/whiteboarding">Whiteboarding</a></li>
           </ul>
-        </li>  -->
+
+        </li>
+
+        </li>
         <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Wiki
         <span class="caret"></span></a>
@@ -109,7 +110,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- script to highlight code syntax using highlight.js -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
 
