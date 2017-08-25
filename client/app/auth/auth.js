@@ -11,6 +11,7 @@ angular.module('prep.signin',[])
 				alert('Wrong Username or Password');
 			}else{
 				$window.localStorage.setItem('rbk.prep', resp.token);
+        console.log(resp.token);
 				$location.path('/calendar');
 			}
 		})

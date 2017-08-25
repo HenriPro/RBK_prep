@@ -27,12 +27,13 @@ module.exports={
 	signin:function(req,res){
 		var userName= req.body.userName;
 		var password= req.body.password;
- 
+
 		User.findOne({userName: userName},function(err,user){
 			if(user){
 				return user.comparePasswords(password)
 		            .then(function (foundUser) {
 		              if (foundUser) {
+                    console.log(user);
 		                var token = jwt.encode(user, 'secret');
 		                res.json({token: token});
 		              } else {
@@ -41,7 +42,7 @@ module.exports={
             	});
 			}else{
 				res.status(500).send("User Does Not Exist")
-			}	
+			}
 		});
 	}
 }

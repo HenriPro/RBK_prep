@@ -4,7 +4,7 @@ var SALT_WORK_FACTOR = 10;
 var Q = require('q');
 
 var UsersSchema = new mongoose.Schema({
-  
+
 	userName: {
 		type: String,
 		required: true,
@@ -16,7 +16,11 @@ var UsersSchema = new mongoose.Schema({
 		required: true
 	},
 
-	salt : String
+	salt : String,
+
+  isAdmin: {
+    type: Boolean
+  }
 })
 
 UsersSchema.methods.comparePasswords = function (candidatePassword) {
@@ -31,7 +35,6 @@ UsersSchema.methods.comparePasswords = function (candidatePassword) {
     });
   });
 };
-
 UsersSchema.pre('save', function (next) {
   var user = this;
 
