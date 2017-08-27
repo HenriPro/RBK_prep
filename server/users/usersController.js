@@ -44,5 +44,12 @@ module.exports={
 				res.status(500).send("User Does Not Exist")
 			}
 		});
-	}
+	},
+  isAdmin:function(req,res){
+    var decoded = jwt.decode(req.headers.token, 'secret');
+    if (decoded.isAdmin) {
+      res.status(200).send(true);
+    }
+    else res.status(200).send(false);
+  }
 }

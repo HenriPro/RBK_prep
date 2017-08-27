@@ -5,6 +5,7 @@ angular.module('prep',[
 	'prep.calendar',
 	'prep.solutions',
 	'prep.services',
+  'prep.admin',
 	'ngRoute'
 ])
 .config(function ($routeProvider, $httpProvider ,$locationProvider, $sceDelegateProvider ,hljsServiceProvider){
@@ -17,7 +18,7 @@ angular.module('prep',[
     	tabReplace: '    '
   	});
 	hljs.initHighlighting();
-		  
+
 	//this code is to fix Blocked loading resource 'which is the iframe slides' from url not allowed by $sceDelegate policy.
 	$sceDelegateProvider.resourceUrlWhitelist([
 		// Allow same origin resource loads.
@@ -25,8 +26,9 @@ angular.module('prep',[
 		// Allow loading from our assets domain. **.
 		'https://docs.google.com/**'
 	]);
-	
+
 	$routeProvider
+
 	.when('/',{
 		templateUrl: 'app/auth/signin.html',
 		controller: 'SigninController'
@@ -67,10 +69,16 @@ angular.module('prep',[
 		templateUrl : 'app/solutions/solutions.html',
 		controller : 'solutionsController'
 	})
+  .when('/admin',{
+    templateUrl : 'app/admin/admin.html',
+    controller : 'AdminController'
+
+  })
 	.when('/:lecture',{
 		templateUrl : 'app/contents/contents.html',
 		controller : 'ContentsController'
 	})
+
 
 	.otherwise({
       redirectTo: '/'
@@ -90,8 +98,8 @@ angular.module('prep',[
 	return attach;
 })
 .run(['$route', '$rootScope', '$location' ,'Auth', function ($route, $rootScope, $location, Auth) {
-	
-	//code to check user authentication    
+
+	//code to check user authentication
 	$rootScope.$on('$routeChangeStart', function (evt, next, current) {
 		if (next.$$route && !Auth.isAuth()) {
 			$location.path('/signin');

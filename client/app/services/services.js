@@ -29,7 +29,7 @@ angular.module('prep.services',[])
 			return error;
 		})
 	};
-	
+
 	var isAuth = function () {
     	return !!$window.localStorage.getItem('rbk.prep');
   	};
@@ -90,14 +90,14 @@ angular.module('prep.services',[])
 			return error;
 		})
 	}
-	
+
 	return {
 		getLectureByTitle : getLectureByTitle ,
 		getLectureQuestions : getLectureQuestions
 	}
 })
 .factory('Solutions',function($http){
-	var getLectureSolutions = function(lecture) { 
+	var getLectureSolutions = function(lecture) {
 		return $http({
 			method : 'GET' ,
 			url : '/api/solutions/getAllLectureSolutions/' + lecture
@@ -126,4 +126,25 @@ angular.module('prep.services',[])
 		getLectureSolutions : getLectureSolutions,
 		getAllSolutionLectures : getAllSolutionLectures
 	}
+})
+.factory('Admin', function($http, $window){
+  var checkIfAdmin = function() {
+    return $http({
+      method : 'GET',
+      url : '/api/users/isadmin',
+      headers:{
+        'token': $window.localStorage.getItem('rbk.prep')
+      }
+    })
+    .then(function(resp){
+      console.log(resp)
+      return resp.data;
+    })
+    .catch(function(error){
+      return error;
+    })
+  }
+  return {
+    checkIfAdmin : checkIfAdmin
+  }
 })

@@ -8,19 +8,20 @@ module.exports=function (app, express){
 
 	////////////////////////////////////////////////////////
 	//													///
-	//				Users Routes						///	
+	//				Users Routes						///
 	//													///
 	///////////////////////////////////////////////////////
 
 	app.post('/api/users/signin',usersController.signin);
 	app.post('/api/users/signup',usersController.signup);
+  app.get('/api/users/isadmin',usersController.isAdmin);
 
 	////////////////////////////////////////////////////////
 	//													///
-	//				Questions Routes					///	
+	//				Questions Routes					///
 	//													///
 	///////////////////////////////////////////////////////
-	
+
 	app.get('/api/questions/getQuestion/:id', questionsController.getQuestion);
 	app.get('/api/questions/getAllLectureQuestions/:lectureID', questionsController.getAllLectureQuestions);
 	app.post('/api/questions/addQuestion', questionsController.addQuestion);
@@ -29,10 +30,10 @@ module.exports=function (app, express){
 
 	////////////////////////////////////////////////////////
 	//													///
-	//				Lectures Routes						///	
+	//				Lectures Routes						///
 	//													///
 	///////////////////////////////////////////////////////
-	
+
 	app.get('/api/lectures/getAllLectures',lecturesController.getAllLectures);
 	app.get('/api/lectures/getLecture/:id',lecturesController.getLecture);
 	app.get('/api/lectures/getLectureQuestions/:id',lecturesController.getLectureQuestions);
@@ -45,14 +46,14 @@ module.exports=function (app, express){
 
 	////////////////////////////////////////////////////////
 	//													///
-	//				Solutions Routes					///	
+	//				Solutions Routes					///
 	//													///
 	///////////////////////////////////////////////////////
 
 	app.post('/api/solutions/addSolution', solutionsController.addSolution);
 	app.get('/api/solutions/getAllLectureSolutions/:lecture' , solutionsController.getAllLectureSolutions);
 	app.get('/api/solutions/getAllSolutionLectures', solutionsController.getAllSolutionLectures);
-	
+
 	//script for handling any request that comes from the client that are asked when the client refresh the page that requires # before it.
 	app.all('*', (req, res) => {
 	console.log(`[TRACE] Server 404 request: ${req.originalUrl}`);
